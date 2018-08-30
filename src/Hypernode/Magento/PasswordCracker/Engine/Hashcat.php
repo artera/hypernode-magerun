@@ -133,7 +133,9 @@ class Hashcat extends AbstractEngine
             return false;
         }
 
-        return empty(shell_exec('which hashcat 2>/dev/null')) ? false : true;
+        $se = shell_exec('which hashcat 2>/dev/null');
+
+        return !empty($se);
     }
 
     /**
